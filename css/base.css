@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    var(--color-bg-top) 0%,
+    var(--color-bg-mid) 40%,
+    var(--color-bg-bottom) 100%
+  );
+  font-family: var(--font-mono);
+  min-height: 100vh;
+  cursor: default;
+  color: var(--color-input-text);
+}
+
+/*
+  Camadas fixas de clima:
+  - ::before cria uma vinheta escura nas bordas, como tela de cinema.
+  - ::after adiciona um brilho central suave para destacar corações e mensagens.
+*/
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+body::before {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.56) 0%,
+      rgba(0, 0, 0, 0) 11%,
+      rgba(0, 0, 0, 0) 89%,
+      rgba(0, 0, 0, 0.58) 100%
+    ),
+    radial-gradient(
+      circle at center,
+      rgba(0, 0, 0, 0) 42%,
+      rgba(0, 0, 0, 0.44) 100%
+    );
+}
+
+body::after {
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(255, 105, 180, 0.08),
+      rgba(120, 150, 255, 0.035) 34%,
+      rgba(0, 0, 0, 0) 68%
+    );
+  mix-blend-mode: screen;
+}
+
+canvas {
+  display: block;
+}
+
+#bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-bg);
+  pointer-events: none;
+}
+
+#bg-canvas.clickable {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+#tree-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#message-layer {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-messages);
+  pointer-events: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Acessibilidade: menos movimento */
+.reduce-motion .code-cell,
+.reduce-motion .floating-message,
+.reduce-motion #phase-code,
+.reduce-motion #phase-tree {
+  animation: none !important;
+  transition-duration: 0.01ms !important;
+}
+
+@media (max-width: 480px) {
+  .hint {
+    font-size: 0.9rem;
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  #code-input {
+    width: min(280px, 90vw);
+  }
+}

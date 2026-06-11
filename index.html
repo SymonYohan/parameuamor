@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Digite o código secreto e veja o coração, as mensagens e as músicas.">
+  <title>Código do Coração</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/phases.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <!-- Camada de fundo: estrelas e corações flutuantes -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- Fase 1: grade de código + entrada -->
+  <section id="phase-code" aria-label="Fase do código secreto">
+    <p class="hint">digite o código secreto...</p>
+    <div id="code-display" role="presentation"></div>
+    <div id="code-input-wrap">
+      <label class="input-label" for="code-input">código</label>
+      <input
+        type="text"
+        id="code-input"
+        placeholder="••••••••"
+        maxlength="16"
+        autocomplete="off"
+        spellcheck="false"
+        inputmode="numeric"
+        aria-describedby="code-hint"
+      >
+      <span id="code-hint" class="visually-hidden">
+        Digite o código correto para revelar o coração.
+      </span>
+    </div>
+  </section>
+
+  <div id="message-layer" aria-live="polite"></div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

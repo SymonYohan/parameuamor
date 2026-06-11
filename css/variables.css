@@ -1,0 +1,35 @@
+:root {
+  /* Cores */
+  --color-bg-top: #02030b;
+  --color-bg-mid: #160b24;
+  --color-bg-bottom: #030610;
+
+  --color-code: #4ade80;
+  --color-code-glow: rgba(74, 222, 128, 0.5);
+
+  --color-heart: #ff6b9d;
+  --color-heart-glow: rgba(255, 107, 157, 0.9);
+
+  --color-input-text: #ffb4dc;
+  --color-input-border: rgba(255, 107, 157, 0.35);
+  --color-hint: rgba(255, 180, 220, 0.45);
+
+  --color-message: #a8d8ff;
+  --color-message-border: rgba(100, 180, 255, 0.2);
+  --color-message-bg: rgba(10, 20, 40, 0.35);
+
+  /* Tipografia */
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-serif: 'Cormorant Garamond', serif;
+
+  /* Espaçamento e camadas */
+  --z-bg: 0;
+  --z-tree: 5;
+  --z-code: 10;
+  --z-messages: 100;
+
+  /* Transições */
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fade-code: 1.2s;
+  --duration-fade-tree: 1.5s;
+}

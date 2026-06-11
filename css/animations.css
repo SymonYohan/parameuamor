@@ -1,0 +1,150 @@
+@keyframes cellPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.35);
+  }
+}
+
+@keyframes inputShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-8px);
+  }
+  40% {
+    transform: translateX(8px);
+  }
+  60% {
+    transform: translateX(-5px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+.floating-message {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  transform: translateX(-50%);
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  font-style: italic;
+  color: var(--color-message);
+  text-shadow:
+    0 0 30px rgba(100, 180, 255, 0.6),
+    0 2px 20px rgba(0, 0, 0, 0.5);
+  padding: 1.5rem 2rem;
+  max-width: 88vw;
+  text-align: center;
+  background: var(--color-message-bg);
+  border-radius: 10px;
+  border: 1px solid var(--color-message-border);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: msgIn 0.6s ease forwards;
+  pointer-events: none;
+}
+
+.floating-message--out {
+  animation: msgOut 0.8s ease forwards;
+}
+
+.floating-message--verse {
+  top: 36%;
+  max-width: min(760px, 88vw);
+  color: #fff4d8;
+  font-size: clamp(1.15rem, 3.6vw, 2.15rem);
+  line-height: 1.35;
+  text-shadow:
+    0 0 28px rgba(255, 214, 128, 0.55),
+    0 2px 24px rgba(0, 0, 0, 0.62);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(28, 18, 44, 0.78),
+      rgba(9, 13, 30, 0.72)
+    );
+  border-color: rgba(255, 220, 150, 0.42);
+  box-shadow:
+    0 0 55px rgba(255, 190, 105, 0.16),
+    inset 0 0 28px rgba(255, 255, 255, 0.045);
+}
+
+.floating-message--growth {
+  top: 32%;
+  max-width: min(680px, 88vw);
+  color: #ffd7ec;
+  font-size: clamp(1.25rem, 3.8vw, 2.25rem);
+  text-shadow:
+    0 0 30px rgba(255, 110, 180, 0.65),
+    0 2px 24px rgba(0, 0, 0, 0.58);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(48, 16, 42, 0.72),
+      rgba(12, 13, 30, 0.68)
+    );
+  border-color: rgba(255, 160, 210, 0.42);
+  box-shadow:
+    0 0 60px rgba(255, 105, 185, 0.18),
+    inset 0 0 24px rgba(255, 255, 255, 0.05);
+}
+
+@keyframes msgIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+@keyframes msgOut {
+  from {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-18px);
+  }
+}
+
+/* Mensagens de erro com efeito pixel */
+.floating-message--error {
+  font-size: 1.5rem !important;
+  font-weight: bold;
+  color: #ff6ba3 !important;
+  text-shadow:
+    0 0 20px rgba(255, 107, 157, 0.8),
+    2px 2px 0px rgba(0, 0, 0, 0.6),
+    4px 4px 0px rgba(255, 60, 120, 0.3) !important;
+  background: rgba(30, 20, 25, 0.95) !important;
+  border: 2px solid #ff6ba3 !important;
+  border-radius: 0 !important;
+  animation: errorPulse 0.5s ease-in-out forwards !important;
+  font-family: 'Courier New', monospace !important;
+  letter-spacing: 0.15em;
+}
+
+@keyframes errorPulse {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.6) rotate(-2deg);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.1) rotate(1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1) rotate(0deg);
+  }
+}
